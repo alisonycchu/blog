@@ -45,11 +45,20 @@ nav {
   margin-bottom: 1.5rem; /* Tighter gap after nav */
 }
 
+nav > a:first-child {
+  font-size: 1.4rem;
+  font-style: italic;
+  font-weight: normal;
+  text-transform: lowercase;
+  text-decoration: none;
+}
+
 .nav-links a {
   margin-left: 1rem;
   font-size: 0.85rem;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-style: normal; /* Keep nav links normal */
 }
 
 main {
