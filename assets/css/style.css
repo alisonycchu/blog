@@ -1,22 +1,21 @@
 :root {
-  --bg-color: #ffffff;
+  --bg-color: #ddeedd; /* Pastel green for light mode */
   --text-color: #111111;
   --link-color: #111111;
   --header-color: #111111;
   --footer-color: #111111;
-  --section-border: #eeeeee;
-  /* Using VCTR Mono as requested */
+  --section-border: rgba(0, 0, 0, 0.1); /* Subtle dark border on green */
   --font-mono: "VCTR Mono", monospace;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg-color: #1a1a1a;
-    --text-color: #dddddd;
-    --link-color: #dddddd;
-    --header-color: #dddddd;
-    --footer-color: #dddddd;
-    --section-border: #333333;
+    --bg-color: #3b3a30; /* Deep olive for dark mode */
+    --text-color: #eeeeee;
+    --link-color: #eeeeee;
+    --header-color: #eeeeee;
+    --footer-color: #eeeeee;
+    --section-border: rgba(255, 255, 255, 0.1); /* Subtle light border on olive */
   }
 }
 
