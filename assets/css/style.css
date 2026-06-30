@@ -235,3 +235,16 @@ article h1 {
   color: var(--footer-color);
   display: inline-block;
 }
+
+hr {
+  margin: 2rem 0;
+}
+
+.botanical-divider {
+  text-align: center;         /* Centers the symbols on the page */
+  margin: 3rem 0;           /* Adds spacious margin before and after the divider */
+  font-size: 1.1rem;          /* Optional: Adjusts the size of the symbols */
+  color: var(--text-color);   /* Keeps the color matching your text */
+  white-space: nowrap;        /* Keeps the symbols grouped on a single line */
+  letter-spacing: 1px;        /* Optional: Gives the characters a tiny bit of breathing room */
+}
