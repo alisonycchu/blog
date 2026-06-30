@@ -11,7 +11,53 @@ title: Home
 <div class="home-grid">
 <section>
   <h2>Intro</h2>
-  <p>Welcome to my digital garden. This is a space where I collect internet clippings, share scattered thoughts, and document my journey. Stay tuned for more utter sense.</p>
+  <p>Oh hey, you’re in my space!</p>
+  <p>But stay for the time being, for the sloppy justifications, and capitulation to brainrot cuz ✅ I am human.</p>
+  </p>Click around for bits and bobs <a href="/blog/about">about me</a>.</p>
+
+  <p>Latest</p>
+
+  <ul class="post-list">
+    {% assign latest = site.posts %}
+    {% assign excluded_tags = "internet-clippings, scattered-thoughts, give-me-10" | split: ", " %}
+
+    {% for post in latest %}
+      {% unless excluded_tags contains post.tag %}
+      <li class="post-item latest-item">
+        <div class="latest-meta">
+          <span class="post-date">
+            {% assign post_seconds = post.date | date: "%s" | plus: 0 %}
+            {% assign diff_seconds = now_seconds | minus: post_seconds %}
+            {% assign diff_days = diff_seconds | divided_by: day_seconds %}
+            
+            {% if diff_days == 0 %}
+              {% if diff_seconds < hour_seconds %}
+                {% assign minutes = diff_seconds | divided_by: minute_seconds %}
+                {% if minutes <= 1 %}just now{% else %}{{ minutes }} mins ago{% endif %}
+              {% else %}
+                {% assign hours = diff_seconds | divided_by: hour_seconds %}
+                {{ hours }} {% if hours == 1 %}hour{% else %}hours{% endif %} ago
+              {% endif %}
+            {% elsif diff_days == 1 %}
+              Yesterday
+            {% elsif diff_days < 7 %}
+              {{ diff_days }} days ago
+            {% else %}
+              {{ post.date | date: "%b %-d, %Y" }}
+            {% endif %}
+          </span>
+        </div>
+        <div class="latest-preview">
+          <a href="{{ post.url | relative_url }}">
+            {{ post.excerpt | strip_html | truncate: 120 }}
+          </a>
+        </div>
+      </li>
+      {% endunless %}
+    {% else %}
+      <p>No latest posts yet.</p>
+    {% endfor %}
+  </ul>
 </section>
 
 <section>

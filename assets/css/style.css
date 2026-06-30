@@ -89,11 +89,28 @@ h2 {
 a {
   color: var(--link-color);
   text-decoration: none;
+  
+  /* 1. Setup the background gradient: half plum, half transparent */
+  background-image: linear-gradient(to right, #50394c 50%, transparent 50%);
+  
+  /* 2. Make the background twice as wide as the link and push it to the right (hidden) */
+  background-size: 200% 100%;
+  background-position: right bottom;
+  
+  /* 3. Smoothly animate the background position and the text color change */
+  transition: background-position 0.3s ease, color 0.3s ease;
 }
 
 a:hover {
-  opacity: 0.7;
+  /* 4. Pull the plum background over to the left */
+  background-position: left bottom;
+  
+  /* 5. Change the text color to the background color */
+  color: var(--bg-color);
+  
+  /* 6. Keep the underline */
   text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .post-list {
@@ -154,7 +171,6 @@ section {
 }
 
 .clipping-preview a {
-  color: var(--text-color);
   text-decoration: none;
 }
 
@@ -174,7 +190,7 @@ section {
   padding: 0.85rem;
 }
 
-@media (min-width: 1000px) {
+@media (min-width: 600px) {
   .home-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -201,7 +217,7 @@ footer {
 
 /* Single Post Styles */
 article {
-  max-width: 1000px; /* Allow articles to be wider but still readable */
+  max-width: 600px; /* Allow articles to be wider but still readable */
   margin: 0; /* Left align articles */
 }
 
